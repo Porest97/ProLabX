@@ -5,3 +5,5 @@ obj/
 appsettings.*.json
 *.user
 *.zip
+wwwroot/Uploads/
+wwwroot/uploads/
