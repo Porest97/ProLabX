@@ -1,0 +1,37 @@
+﻿
+<div class="card">
+    <div class="card-header">
+        <h2>⬆ Upload video</h2>
+    </div>
+    <div class="card-body">
+<form method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label class="form-label">Titel</label>
+        <input name="title" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Beskrivning</label>
+        <textarea name="description" class="form-control"></textarea>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Videofil</label>
+        <input type="file" name="videoFile" accept="video/*" class="form-control" required />
+    </div>
+
+    <button type="submit" class="btn btn-success">Save</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+    <div class="card-footer">
+        <div class="card-footer text-muted">
+            🔙
+            <a asp-area="XLab"
+               asp-controller="XLabVideos"
+               asp-action="Index">
+                Back to Video Library
+            </a>
+        </div>
+    </div>
+</div>

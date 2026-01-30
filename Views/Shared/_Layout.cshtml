@@ -1,0 +1,100 @@
+﻿@inject SignInManager<ApplicationUser> signInManager
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"] - ProLabX</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom mb-3">
+            <div class="container">
+
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index">
+                    <img src="~/img/ProLabX_75.jpg" style="max-height:28px;" />
+                </a>
+
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav ms-auto">
+
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            
+                            <!-- ADMIN (PG-SAFE) -->
+                            @if (User.HasClaim("Admin", "Admin") || User.IsInRole("Admin"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="Administration" asp-action="Admin">
+                                        <img src="~/img/ADMIN_Logo.jpg" style="max-height:28px;" />
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-area="HockeyData" asp-controller="Home" asp-action="IndexHockeyData">
+                                        <img src="~/img/P.R.O.Hockey_Logo.jpg" style="max-height:28px;" />
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-area="ProGym" asp-controller="Home" asp-action="IndexProGym">
+                                        <img src="~/img/P.R.O.Hockey_Logo.jpg" style="max-height:28px;" />
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-area="XLab" asp-controller="XLab" asp-action="IndexXLab">
+                                        <img src="~/img/Icon_XLab.png" style="max-height:28px;" />
+                                    </a>
+                                </li>
+                                @* <li class="nav-item">
+                                    <a class="nav-link" asp-area="TaxiData" asp-controller="Home" asp-action="IndexTaxiData">
+                                        <img src="~/img/TaxiData_99X69.jpg" style="max-height:28px;" />
+                                    </a>
+                                </li> *@
+                            }
+                            <!-- LOGOUT -->
+                            <li class="nav-item">
+                                <form method="post" asp-controller="Account" asp-action="Logout">
+                                    <button class="btn btn-link nav-link">
+                                        Logout @User.Identity.Name
+                                    </button>
+                                </form>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Account" asp-action="Login">Login</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Account" asp-action="Register">Register</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2026 - ProLabX
+        </div>
+    </footer>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

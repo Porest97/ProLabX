@@ -1,0 +1,49 @@
+﻿@model IEnumerable<ProLab.Areas.HockeyData.Models.DataModels.HockeyArena>
+
+@{
+    ViewData["Title"] = "Hockey Arenor";
+}
+
+<h2>Hockey Arenor</h2>
+
+<p>
+    <a asp-action="CreateHockeyArena" class="btn btn-success">Ny Arena</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Arena</th>
+            <th>Ort</th>
+            <th>Kapacitet</th>
+            <th>Verktyg</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var arena in Model)
+        {
+            <tr>
+                <td>@arena.HockeyArenaName</td>
+                <td>@arena.Location</td>
+                <td>@arena.Capacity</td>
+                <td>
+                    <a asp-action="EditHockeyArena" asp-route-id="@arena.Id" class="btn btn-primary btn-sm">Redigera</a>
+                    <a asp-action="DeleteHockeyArena" asp-route-id="@arena.Id" class="btn btn-danger btn-sm">Radera</a>
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="card-footer">
+    🔙
+    <a asp-area="HockeyData"
+       asp-controller="Home"
+       asp-action="IndexHockeyData">
+        Tillbaka till Hockey Data
+    </a>
+    🔙
+    <a asp-area=""
+       asp-controller="Home"
+       asp-action="Index">
+        Till ProlabX
+    </a>
+</div>

@@ -1,0 +1,40 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "type": "mssql.local",
+      "connectionId": "ConnectionStrings:SumpanHockeyContext"
+    },
+    "mssql2": {
+      "type": "mssql.local",
+      "connectionId": "ConnectionStrings:HockeyAdminContext"
+    },
+    "mssql3": {
+      "type": "mssql.local",
+      "connectionId": "ConnectionStrings:HockeySeason2025Context"
+    },
+    "mssql4": {
+      "type": "mssql.local",
+      "connectionId": "ConnectionStrings:HockeySeason2025_2026Context"
+    },
+    "mssql5": {
+      "type": "mssql.local",
+      "connectionId": "ConnectionStrings:TaxiDataContext"
+    },
+    "mssql6": {
+      "type": "mssql.local",
+      "connectionId": "ConnectionStrings:TaxiDataOrgContext"
+    },
+    "mssql7": {
+      "type": "mssql.local",
+      "connectionId": "ConnectionStrings:PerRouinantOrestLifeLogContext"
+    },
+    "mssql8": {
+      "type": "mssql.local",
+      "connectionId": "ConnectionStrings:UltimatEvaDataContext"
+    },
+    "mssql9": {
+      "type": "mssql.local",
+      "connectionId": "ConnectionStrings:SikRekHockeyDataContext"
+    }
+  }
+}

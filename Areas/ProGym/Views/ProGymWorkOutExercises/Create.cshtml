@@ -1,0 +1,16 @@
+﻿@using Microsoft.AspNetCore.Mvc.Rendering
+@model ProLab.Areas.ProGym.Models.DataModels.ProGymWorkoutExercise
+
+<form method="post">
+    <input type="hidden" asp-for="ProGymWorkOutId" value="@ViewData["WorkoutId"]" />
+
+    <select asp-for="ProGymExerciseId"
+            asp-items="@(ViewData["Exercises"] as SelectList)">
+    </select>
+
+    <input asp-for="Sets" />
+    <input asp-for="Reps" />
+    <input asp-for="Weight" />
+
+    <button type="submit">Save</button>
+</form>

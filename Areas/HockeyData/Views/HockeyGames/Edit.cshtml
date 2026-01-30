@@ -1,0 +1,26 @@
+﻿@model ProLab.Areas.HockeyData.Models.DataModels.HockeyGame
+
+@{
+    ViewData["Title"] = "Edit Hockey Game";
+}
+
+<h1>Edit</h1>
+<hr />
+
+<form asp-action="Edit">
+    <input type="hidden" asp-for="Id" />
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="mb-3">
+        <label class="form-label">Datum & Tid (lokal tid)</label>
+        <input asp-for="GameDateTime"
+               type="datetime-local"
+               class="form-control" />
+    </div>
+
+    <partial name="_HockeyGameForm" model="Model" />
+
+    <button type="submit" class="btn btn-sm btn-primary">Save</button>
+    <a asp-action="Index" class="btn btn-sm btn-secondary">Back</a>
+</form>

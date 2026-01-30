@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <title>SIK Super Sunday – Offline Scoreboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/scoreboard.css">
+</head>
+<body>
+
+<div class="scoreboard">
+
+    <h1>SIK Super Sunday</h1>
+    <h2>LIVE SCOREBOARD</h2>
+
+    <div class="row">
+
+        <!-- HEMMA -->
+        <div class="team">
+            <div class="team-name">Sumpan Svart</div>
+            <div class="score" id="homeScore">0</div>
+            <div class="buttons">
+                <button class="btn plus" onclick="changeScore('home', 1)">+</button>
+                <button class="btn minus" onclick="changeScore('home', -1)">−</button>
+            </div>
+        </div>
+
+        <!-- MITTEN -->
+        <div class="center">
+            <div class="period-label">PERIOD</div>
+            <div class="period-value" id="period">1</div>
+
+            <div class="clock" id="clock">20:00</div>
+
+            <div class="clock-buttons">
+                <button class="btn start" onclick="startClock()">Start</button>
+                <button class="btn stop" onclick="stopClock()">Stop</button>
+                <button class="btn reset" onclick="resetClock()">Reset</button>
+            </div>
+
+            <div class="period-buttons">
+                <button class="btn period-plus" onclick="changePeriod(1)">Period +</button>
+                <button class="btn period-minus" onclick="changePeriod(-1)">Period −</button>
+            </div>
+        </div>
+
+        <!-- BORTA -->
+        <div class="team">
+            <div class="team-name">Sumpan Vit</div>
+            <div class="score" id="awayScore">0</div>
+            <div class="buttons">
+                <button class="btn plus" onclick="changeScore('away', 1)">+</button>
+                <button class="btn minus" onclick="changeScore('away', -1)">−</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        Tulehallen · 2025-12-28 19:30
+    </div>
+
+</div>
+
+<script src="js/scoreboard.js"></script>
+</body>
+</html>

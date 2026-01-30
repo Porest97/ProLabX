@@ -1,0 +1,23 @@
+﻿@model ProLab.Areas.HockeyData.Models.DataModels.HockeyGame
+
+@{
+    ViewData["Title"] = "Delete Hockey Game";
+}
+
+<h1>Delete</h1>
+<hr />
+
+<h4>Är du säker?</h4>
+
+<p>
+    <strong>@Model.HomeTeam?.HockeyTeamName</strong>
+    vs
+    <strong>@Model.AwayTeam?.HockeyTeamName</strong>
+</p>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="Id" />
+
+    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+    <a asp-action="Index" class="btn btn-sm btn-secondary">Cancel</a>
+</form>

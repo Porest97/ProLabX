@@ -1,0 +1,29 @@
+﻿@model IEnumerable<ProLab.Areas.ProGym.Models.DataModels.ProGymWorkOut>
+
+<h6>ProGym – Träningspass</h6>
+
+<p><a asp-action="Create" class="btn btn-sm btn-primary">Nytt pass</a></p>
+
+<table class="table">
+    <tr>
+        <th>Start</th>
+        <th>Slut</th>
+        <th>Plats</th>
+        <th>Status</th>
+        <th></th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.StartDateLocal.ToString("yyyy-MM-dd HH:mm")</td>
+            <td>@x.EndDateLocal.ToString("yyyy-MM-dd HH:mm")</td>
+            <td>@x.Location</td>
+            <td>@x.Status</td>
+            <td>
+                <a asp-action="Details" asp-route-id="@x.Id">View</a> |
+                <a asp-action="Edit" asp-route-id="@x.Id">Edit</a> |
+                <a asp-action="Delete" asp-route-id="@x.Id">Delete</a>
+            </td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,132 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #000;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.scoreboard {
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    margin: 10px 0 0;
+    font-size: 2.5rem;
+}
+
+h2 {
+    margin: 5px 0 30px;
+    font-size: 1.4rem;
+    font-weight: normal;
+    letter-spacing: 2px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.team {
+    width: 30%;
+}
+
+.team-name {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.score {
+    font-size: 6rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.center {
+    width: 40%;
+}
+
+.period-label {
+    font-size: 1.8rem;
+    letter-spacing: 3px;
+    margin-bottom: 5px;
+}
+
+.period-value {
+    font-size: 5rem;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.clock {
+    border: 3px solid #fff;
+    padding: 25px 60px;
+    font-size: 5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.clock-buttons,
+.period-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.btn {
+    font-size: 1.4rem;
+    padding: 12px 22px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.plus {
+    background: #2ecc71;
+    color: #000;
+}
+
+.minus {
+    background: #e74c3c;
+    color: #000;
+}
+
+.start {
+    background: #2ecc71;
+}
+
+.stop {
+    background: #f1c40f;
+    color: #000;
+}
+
+.reset {
+    background: #7f8c8d;
+}
+
+.period-plus {
+    background: #3498db;
+}
+
+.period-minus {
+    background: #e74c3c;
+}
+
+.footer {
+    margin-top: 30px;
+    font-size: 0.9rem;
+    color: #aaa;
+}

@@ -1,0 +1,15 @@
+﻿@model ProLab.Areas.XLab.Models.DataModels.XLabVideo
+
+<h2>@Model.Title</h2>
+
+<p>@Model.Description</p>
+
+<video width="100%" controls>
+    <source src="@Model.FilePath" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+
+<br />
+<br />
+
+<a asp-action="Index" class="btn btn-sm btn-secondary">⬅ Back</a>

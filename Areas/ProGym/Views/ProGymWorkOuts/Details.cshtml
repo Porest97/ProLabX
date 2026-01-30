@@ -1,0 +1,11 @@
+﻿@model ProLab.Areas.ProGym.Models.DataModels.ProGymWorkOut
+
+<h2>Träningspass</h2>
+
+<p><b>Start:</b> @Model.StartDateLocal</p>
+<p><b>Slut:</b> @Model.EndDateLocal</p>
+<p><b>Plats:</b> @Model.Location</p>
+<p><b>Status:</b> @Model.Status</p>
+<p><b>Beskrivning:</b> @Model.Description</p>
+
+<a class="btn btn-sm btn-success" asp-action="Index">Tillbaka</a>

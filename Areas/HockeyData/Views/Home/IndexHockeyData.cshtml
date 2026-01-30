@@ -1,0 +1,142 @@
+﻿@{
+    ViewData["Title"] = "Hockey Data";
+    Layout = "~/Areas/HockeyData/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card text-center">
+
+    <div class="card-header">
+        <img src="~/img/HockeyAdminS2025_99X69.jpg"
+             style="max-width:200px;"
+             alt="Sumpan Hockey" />
+    </div>
+
+    <div class="card-body card-columns align-self-md-start">
+
+        <h4 class="card-title">Hockey Admin</h4>
+        <p class="text-muted">Säsongen 2025 / 2026</p>
+
+        <div class="d-grid gap-2 col-6 mx-auto">                
+
+            <a asp-area="HockeyData"
+               asp-controller="HockeyDataPublic"
+               asp-action="IndexHockeyGamesNHL"
+               class="btn btn-outline-success">
+                Till Hockeymatcher (NHL Style)
+            </a>
+            <a asp-area="HockeyData"
+               asp-controller="HockeyDataPublic"
+               asp-action="Standings"
+               class="btn btn-outline-success">
+                Till Tabellen (NHL Style)
+            </a>
+            <a asp-area="HockeyData"
+               asp-controller="HockeyArenas"
+               asp-action="IndexHockeyArenas"
+               class="btn btn-outline-success">
+                Till Arenor
+            </a>
+            <a asp-area="HockeyData"
+               asp-controller="HockeyTeams"
+               asp-action="Index"
+               class="btn btn-outline-success">
+                Till Lagen
+            </a>
+
+            <a asp-area="HockeyData"
+               asp-controller="HockeyPlayers"
+               asp-action="Index"
+               class="btn btn-outline-success">
+                Till Spelare
+            </a>
+
+            <a asp-area="HockeyData"
+               asp-controller="HockeyGameStatuses"
+               asp-action="Index"
+               class="btn btn-outline-success">
+                Till Matchstatusar
+            </a>
+
+            <a asp-area="HockeyData"
+               asp-controller="HockeyGames"
+               asp-action="Index"
+               class="btn btn-outline-success">
+                Till Matcher
+            </a>
+            <a asp-area="HockeyData"
+               asp-controller="HockeySeries"
+               asp-action="Index"
+               class="btn btn-outline-success">
+                Till Serier
+            </a>            
+            @* <a asp-area="HockeySeason2025_2026"
+               asp-controller="TsmHockeyGames"
+               asp-action="Index"
+               class="btn btn-outline-success">
+                Till TSM HockeyGames (RAW)
+            </a> *@
+            @* <a asp-area="SikRekHockeyData"
+               asp-controller="Home"
+               asp-action="Index"
+               class="btn btn-outline-success">
+                Till SikRekHocketData
+            </a> *@
+            @* <a asp-area="HockeySeason2025_2026"
+               asp-controller="Standings"
+               asp-action="IndexGroupStandings"
+               class="btn btn-outline-success">
+                Tabellen (Swedish Style)
+            </a> *@
+            @* <a asp-area="HockeySeason2025_2026"
+               asp-controller="Standings"
+               asp-action="IndexGroupStandingsNhlStyle"
+               class="btn btn-outline-success">
+                Tabellen (NHL Style)
+            </a> *@
+            @* <a asp-area="HockeySeason2025_2026"
+               asp-controller="SIKSuperSundays"
+               asp-action="IndexSIKSuperSundays"
+               class="btn btn-outline-primary">
+                SIK Super Sundays
+            </a> *@
+            @* <a asp-area="HockeySeason2025_2026"
+               asp-controller="SIKSuperSundays"
+               asp-action="IndexSIKSuperSundaysWTools"
+               class="btn btn-outline-primary">
+                SIK Super Sundays Med Verktyg
+            </a> *@
+            @* <a asp-area="HockeySeason2025_2026"
+               asp-controller="Home"
+               asp-action="HockeyAdminDashboard"
+               class="btn btn-outline-primary">
+                Hockey Admin Dashboard
+            </a> *@
+            @* <a asp-area="HockeySeason2025_2026"
+               asp-controller="Home"
+               asp-action="HockeyAdminDashboardWithViewFunctions"
+               class="btn btn-outline-primary">
+                Hockey Admin Dashboard Med Vyfunktioner
+            </a> *@
+            @* <a asp-area="HockeyData"
+               asp-controller="HockeyGameClock"
+               asp-action="IndexWebHockeyGameClock"
+               class="btn btn-outline-primary">
+                Hockey Game Clock (WEB)
+            </a> *@
+            @* <a asp-area="HockeyData"
+               asp-controller="HockeyGameClock"
+               asp-action="IndexWebHockeyGameClockLocked"
+               class="btn btn-outline-primary">
+                Hockey Game Clock Locked (WEB)
+            </a> *@
+        </div>
+    </div>
+    <div class="card-footer">
+        🔙
+        <a asp-area=""
+           asp-controller="Home"
+           asp-action="Index">
+            Tillbaka till ProLabX
+        </a>
+    </div>
+    </div>

@@ -1,0 +1,47 @@
+﻿@model ProLab.Areas.HockeyData.Models.DataModels.HockeyGame
+@using System.Runtime.InteropServices
+
+@{
+    ViewData["Title"] = "Details";
+
+    var tz = TimeZoneInfo.FindSystemTimeZoneById(
+        RuntimeInformation.IsOSPlatform(OSPlatform.Windows)
+            ? "W. Europe Standard Time"
+            : "Europe/Stockholm"
+    );
+
+    var localTime = TimeZoneInfo.ConvertTimeFromUtc(
+        Model.GameDateTime.UtcDateTime, tz);
+}
+
+<h1>Details</h1>
+<hr />
+
+<dl class="row">
+    <dt class="col-sm-3">Datum & Tid</dt>
+    <dd class="col-sm-9">@localTime.ToString("yyyy-MM-dd HH:mm")</dd>
+
+    <dt class="col-sm-3">Match #</dt>
+    <dd class="col-sm-9">@Model.GameNumber</dd>
+
+    <dt class="col-sm-3">Serie</dt>
+    <dd class="col-sm-9">@Model.HockeySeries?.HockeySeriesName</dd>
+
+    <dt class="col-sm-3">Arena</dt>
+    <dd class="col-sm-9">@Model.HockeyArena?.HockeyArenaName</dd>
+
+    <dt class="col-sm-3">Hemma</dt>
+    <dd class="col-sm-9">@Model.HomeTeam?.HockeyTeamName</dd>
+
+    <dt class="col-sm-3">Borta</dt>
+    <dd class="col-sm-9">@Model.AwayTeam?.HockeyTeamName</dd>
+
+    <dt class="col-sm-3">Resultat</dt>
+    <dd class="col-sm-9">@Model.Result</dd>
+
+    <dt class="col-sm-3">Status</dt>
+    <dd class="col-sm-9">@Model.GameStatus?.HockeyGameStatusName</dd>
+</dl>
+
+<a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-sm btn-primary">Edit</a>
+<a asp-action="Index" class="btn btn-sm btn-secondary">Back</a>

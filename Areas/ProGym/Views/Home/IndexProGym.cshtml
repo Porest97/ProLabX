@@ -1,0 +1,77 @@
+﻿@{
+    ViewData["Title"] = "PRO Gym";
+    Layout = "~/Areas/ProGym/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-4">
+
+    <div class="card text-center shadow-sm">
+
+        <!-- HEADER -->
+        <div class="card-header bg-dark text-white">
+            <h3 class="mb-0">🏋️ ProGym – Admin</h3>
+        </div>
+
+        <!-- BODY -->
+        <div class="card-body">
+
+            <p class="text-muted mb-4">
+                Välj vad du vill arbeta med
+            </p>
+
+            <div class="row justify-content-center g-4">
+
+                <!-- WORKOUTS -->
+                <div class="col-md-4">
+                    <a asp-area="ProGym"
+                       asp-controller="ProGymWorkOuts"
+                       asp-action="Index"
+                       class="text-decoration-none">
+                        <div class="card h-100 border-success hover-shadow">
+                            <div class="card-body text-center">
+                                <div class="display-4 mb-2">🏋️‍♂️</div>
+                                <h5 class="card-title text-success">
+                                    Träningspass
+                                </h5>
+                                <p class="card-text text-muted">
+                                    Skapa, redigera och följ upp gympass
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- WEB LINKS -->
+                <div class="col-md-4">
+                    <a asp-area="ProGym"
+                       asp-controller="Home"
+                       asp-action="Links"
+                       class="text-decoration-none">
+                        <div class="card h-100 border-primary hover-shadow">
+                            <div class="card-body text-center">
+                                <div class="display-4 mb-2">🌐</div>
+                                <h5 class="card-title text-primary">
+                                    Web-länkar
+                                </h5>
+                                <p class="card-text text-muted">
+                                    Externa resurser, program & inspiration
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="card-footer text-muted">
+            🔙
+            <a asp-area=""
+               asp-controller="Home"
+               asp-action="Index">
+                Tillbaka till ProLabX
+            </a>
+        </div>
+    </div>
+</div>

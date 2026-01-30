@@ -1,0 +1,66 @@
+﻿@model IEnumerable<ProLab.Areas.HockeyData.ViewModels.Public.PublicGameRowVM>
+
+@{
+    ViewData["Title"] = "Hockey – Matcher";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-4">
+
+    <h2 class="mb-4 text-center">🏒 Matcher & Resultat</h2>
+
+    <table class="table table-borderless align-middle nhl-table">
+        <tbody>
+            @foreach (var game in Model)
+            {
+                <tr class="border-bottom">
+
+                    <!-- DATUM / TID -->
+                    <td class="text-muted small text-center" style="width:120px;">
+                        <div>@game.GameTime.ToLocalTime().ToString("yyyy-MM-dd")</div>
+                        <strong>@game.GameTime.ToLocalTime().ToString("HH:mm")</strong>
+                    </td>
+
+                    <!-- HEMMALAG -->
+                    <td class="text-end">
+                        <strong>@game.HomeTeam</strong>
+                    </td>
+                    <td class="text-center" style="width:50px;">
+                        <img src="@game.HomeTeamBadgePath"
+                             alt="@game.HomeTeam"
+                             style="height:36px;" />
+                    </td>
+
+                    <!-- RESULTAT -->
+                    <td class="text-center fw-bold" style="width:90px;">
+                        @if (game.HomeScore.HasValue && game.AwayScore.HasValue)
+                        {
+                            <span>@game.HomeScore - @game.AwayScore</span>
+                        }
+                        else
+                        {
+                            <span class="text-muted">@game.Status</span>
+                        }
+                    </td>
+
+                    <!-- BORTALAG -->
+                    <td class="text-center" style="width:50px;">
+                        <img src="@game.AwayTeamBadgePath"
+                             alt="@game.AwayTeam"
+                             style="height:36px;" />
+                    </td>
+                    <td class="text-start">
+                        <strong>@game.AwayTeam</strong>
+                    </td>
+
+                    <!-- ARENA -->
+                    <td class="text-muted small text-end">
+                        @game.Arena
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

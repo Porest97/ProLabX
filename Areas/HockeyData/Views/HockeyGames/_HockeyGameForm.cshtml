@@ -1,0 +1,46 @@
+﻿@model ProLab.Areas.HockeyData.Models.DataModels.HockeyGame
+
+<div class="mb-3">
+    <label asp-for="GameNumber" class="form-label"></label>
+    <input asp-for="GameNumber" class="form-control" />
+</div>
+
+<div class="mb-3">
+    <label asp-for="HockeyGameStatusId" class="form-label"></label>
+    <select asp-for="HockeyGameStatusId" class="form-control"
+            asp-items="ViewBag.HockeyGameStatusId"></select>
+</div>
+
+<div class="mb-3">
+    <label asp-for="HockeySeriesId" class="form-label"></label>
+    <select asp-for="HockeySeriesId" class="form-control"
+            asp-items="ViewBag.HockeySeriesId"></select>
+</div>
+
+<div class="mb-3">
+    <label asp-for="HockeyArenaId" class="form-label"></label>
+    <select asp-for="HockeyArenaId" class="form-control"
+            asp-items="ViewBag.HockeyArenaId"></select>
+</div>
+
+<div class="mb-3">
+    <label asp-for="HockeyTeamId" class="form-label"></label>
+    <select asp-for="HockeyTeamId" class="form-control"
+            asp-items="ViewBag.HockeyTeamId"></select>
+</div>
+
+<div class="mb-3">
+    <label asp-for="HockeyTeamId1" class="form-label"></label>
+    <select asp-for="HockeyTeamId1" class="form-control"
+            asp-items="ViewBag.HockeyTeamId1"></select>
+</div>
+
+<div class="mb-3">
+    <label asp-for="HomeTeamScore" class="form-label"></label>
+    <input asp-for="HomeTeamScore" class="form-control" />
+</div>
+
+<div class="mb-3">
+    <label asp-for="AwayTeamScore" class="form-label"></label>
+    <input asp-for="AwayTeamScore" class="form-control" />
+</div>

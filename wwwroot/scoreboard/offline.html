@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="utf-8" />
+    <title>SIK Super Sunday – Scoreboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="manifest" href="/scoreboard/manifest.json">
+
+    <style>
+        body {
+            background: #fff;
+            color: #000;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            user-select: none;
+        }
+
+        .team-name {
+            font-size: 2rem;
+        }
+
+        .score {
+            font-size: 5rem;
+            font-weight: bold;
+        }
+
+        .period-label {
+            font-size: 2rem;
+        }
+
+        .period-value {
+            font-size: 5rem;
+            font-weight: bold;
+        }
+
+        .clock {
+            font-size: 5rem;
+            border: 2px solid #000;
+            padding: 20px 60px;
+            margin: 20px auto;
+            display: inline-block;
+        }
+
+        button {
+            font-size: 1.5rem;
+            margin: 5px;
+            width: 70px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>SIK Super Sunday</h2>
+    <h4>Scoreboard</h4>
+
+    <div style="display:flex; justify-content:space-around; align-items:center">
+
+        <div>
+            <div class="team-name">Sumpan Svart</div>
+            <div class="score" id="homeScore">7</div>
+            <button onclick="homeScore++ ; render()">+</button>
+            <button onclick="homeScore-- ; render()">−</button>
+        </div>
+
+        <div>
+            <div class="period-label">PERIOD</div>
+            <div class="period-value" id="period">2</div>
+        </div>
+
+        <div>
+            <div class="team-name">Sumpan Vit</div>
+            <div class="score" id="awayScore">10</div>
+            <button onclick="awayScore++ ; render()">+</button>
+            <button onclick="awayScore-- ; render()">−</button>
+        </div>
+
+    </div>
+
+    <div class="clock" id="clock">40:00</div>
+
+    <button onclick="start()">Start</button>
+    <button onclick="stop()">Stop</button>
+    <button onclick="reset()">Reset</button>
+
+    <script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("/scoreboard/sw.js");
+}
+
+let homeScore = 7;
+let awayScore = 10;
+let period = 2;
+
+let totalSeconds = 40 * 60;
+let timer = null;
+
+function render() {
+  document.getElementById("homeScore").innerText = homeScore;
+  document.getElementById("awayScore").innerText = awayScore;
+  document.getElementById("period").innerText = period;
+
+  const m = String(Math.floor(totalSeconds / 60)).padStart(2,"0");
+  const s = String(totalSeconds % 60).padStart(2,"0");
+  document.getElementById("clock").innerText = `${m}:${s}`;
+}
+
+function start() {
+  if (timer) return;
+  timer = setInterval(() => {
+    if (totalSeconds > 0) {
+      totalSeconds--;
+      render();
+    }
+  }, 1000);
+}
+
+function stop() {
+  clearInterval(timer);
+  timer = null;
+}
+
+function reset() {
+  stop();
+  totalSeconds = 40 * 60;
+  render();
+}
+
+render();
+    </script>
+
+</body>
+</html>

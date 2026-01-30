@@ -1,0 +1,68 @@
+﻿@model IEnumerable<ProLab.Areas.HockeyData.Models.DataModels.HockeyGame>
+@using System.Runtime.InteropServices
+
+@{
+    ViewData["Title"] = "Hockey Games";
+
+    var tz = TimeZoneInfo.FindSystemTimeZoneById(
+        RuntimeInformation.IsOSPlatform(OSPlatform.Windows)
+            ? "W. Europe Standard Time"
+            : "Europe/Stockholm"
+    );
+}
+
+<h1>Hockey Games</h1>
+
+<form method="get" class="mb-3">
+    <div class="input-group">
+        <input type="text"
+               name="searchString"
+               value="@ViewData["CurrentFilter"]"
+               class="form-control"
+               placeholder="Sök: match #, lag, arena, serie" />
+        <button class="btn btn-primary">Sök</button>
+        <a asp-action="Index" class="btn btn-sm btn-secondary">Rensa</a>
+    </div>
+</form>
+
+<p>
+    <a asp-action="Create" class="btn btn-sm btn-success">+ Ny match</a>
+</p>
+
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Datum & Tid</th>
+            <th>Match #</th>
+            <th>Serie</th>
+            <th>Arena</th>
+            <th>Hemma</th>
+            <th>Borta</th>
+            <th>Resultat</th>
+            <th>Status</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var g in Model)
+        {
+            var localTime = TimeZoneInfo.ConvertTimeFromUtc(g.GameDateTime.UtcDateTime, tz);
+
+            <tr>
+                <td>@localTime.ToString("yyyy-MM-dd HH:mm")</td>
+                <td>@g.GameNumber</td>
+                <td>@g.HockeySeries?.HockeySeriesName</td>
+                <td>@g.HockeyArena?.HockeyArenaName</td>
+                <td>@g.HomeTeam?.HockeyTeamName</td>
+                <td>@g.AwayTeam?.HockeyTeamName</td>
+                <td>@g.Result</td>
+                <td>@g.GameStatus?.HockeyGameStatusName</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@g.Id">Details</a> |
+                    <a asp-action="Edit" asp-route-id="@g.Id">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@g.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

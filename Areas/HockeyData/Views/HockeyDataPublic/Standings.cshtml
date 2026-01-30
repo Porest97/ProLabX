@@ -1,0 +1,43 @@
+﻿@model IEnumerable<ProLab.Areas.HockeyData.ViewModels.Public.PublicStandingsRowVM>
+
+@{
+    ViewData["Title"] = "Standings";
+    Layout = "~/Areas/HockeyData/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="mb-4">🏒 Standings</h2>
+
+<table class="table table-dark table-striped table-hover align-middle">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Lag</th>
+            <th class="text-center">GP</th>
+            <th class="text-center">GF</th>
+            <th class="text-center">GA</th>
+            <th class="text-center">+/-</th>
+            <th class="text-center">P</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var t in Model)
+        {
+            <tr>
+                <td style="width:60px">
+                    @if (!string.IsNullOrEmpty(t.BadgePath))
+                    {
+                        <img src="@t.BadgePath"
+                             alt="@t.TeamName"
+                             style="max-height:40px;" />
+                    }
+                </td>
+                <td><strong>@t.TeamName</strong></td>
+                <td class="text-center">@t.GamesPlayed</td>
+                <td class="text-center">@t.GoalsFor</td>
+                <td class="text-center">@t.GoalsAgainst</td>
+                <td class="text-center">@t.GoalDiff</td>
+                <td class="text-center fw-bold">@t.Points</td>
+            </tr>
+        }
+    </tbody>
+</table>

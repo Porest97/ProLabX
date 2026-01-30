@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"] - ProGym</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- ProLab global CSS -->
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+
+    <nav class="navbar navbar-expand navbar-dark bg-dark">
+        <a class="navbar-brand"
+           asp-area="ProGym"
+           asp-controller="Home"
+           asp-action="IndexProGym">
+            💪 ProGym
+        </a>
+    </nav>
+
+    <main class="container mt-4">
+        @RenderBody()
+    </main>
+
+    <footer class="text-center mt-4 text-muted">
+        <hr />
+        <small>ProGym · Bygger kropp & knopp</small>
+    </footer>
+
+    <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

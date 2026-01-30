@@ -1,0 +1,46 @@
+﻿@model LoginViewModel
+
+@{
+    ViewBag.Title = "User Login";
+}
+
+
+<div class="col-sm-12 align-content-center">
+    <div class="card col-sm-4 text-center" style="border-color: black; padding-bottom: 4px; padding-top: 4px; padding-left: 4px; padding-right: 4px; width: 50%;">
+
+        <div class="badge badge-primary">
+            <h6>@ViewData["Title"]</h6>
+            @*<h6>Send account request to:</h6>
+                <h6>register@netello.se</h6>*@
+        </div>
+        <div class="login-form-icon">
+            <i class="fas fa-user-circle fa-9x text-secondary"></i>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <form method="post">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Email"></label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Password"></label>
+                        <input asp-for="Password" class="form-control" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <div class="custom-checkbox">
+                            <label asp-for="RememberMe">
+                                <input asp-for="RememberMe" />
+                                @Html.DisplayNameFor(m => m.RememberMe)
+                            </label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-sm btn-primary">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+﻿@model ProLab.Areas.ProGym.Models.DataModels.ProGymWorkOut
+
+<form method="post">
+    <label>Start</label>
+    <input asp-for="StartDate" type="datetime-local" class="form-control" />
+
+    <label>Slut</label>
+    <input asp-for="EndDate" type="datetime-local" class="form-control" />
+
+    <label>Plats</label>
+    <input asp-for="Location" class="form-control" />
+
+    <label>Beskrivning</label>
+    <textarea asp-for="Description" class="form-control"></textarea>
+
+    <label>Status</label>
+    <input asp-for="Status" class="form-control" />
+
+    <br />
+    <button type="submit" class="btn btn-sm btn-success">Spara</button>
+</form>
+<a asp-area="ProGym"
+   asp-controller="ProGymWorkoutExercises"
+   asp-action="Create"
+   asp-route-workoutId="@Model.Id"
+   class="btn btn-outline-primary">
+    ➕ Add exercise
+</a>

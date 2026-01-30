@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Administration Page";
+}
+
+<div class="card card-columns">
+    <div class="card-header">
+        <h6>User Administration</h6>
+    </div>
+    <div class="card-footer">
+        <a asp-action="ListRoles" asp-controller="Administration" class="btn btn-sm btn-outline-success">Go to Roles</a>
+        - Administrate User Roles
+    </div>
+    <div class="card-footer">
+        <a asp-action="ListUsers" asp-controller="Administration" class="btn btn-sm btn-outline-success">Go to Users</a>
+        - Administrate Users
+    </div>
+</div>
